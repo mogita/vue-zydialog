@@ -1,0 +1,147 @@
+.zy-dialog-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+.zy-dialog-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.zy-dialog-content {
+  position: relative;
+  top: 46%;
+  transform: translateY(-100%);
+  background-color: #ffffff;
+  width: 380px;
+  margin: 0 auto;
+  border-radius: 2px;
+  overflow: hidden;
+  outline: none;
+  transition: all .3s ease;
+}
+
+.zy-dialog-header {
+  padding: 20px 16px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444444;
+}
+
+.zy-dialog-header.with-body {
+  padding-bottom: 12px;
+}
+
+.zy-dialog-body {
+  padding: 0 16px 20px;
+  font-size: 14px;
+  color: #555555;
+}
+
+.zy-dialog-footer {
+  padding: 10px;
+  text-align: right;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+.prompt-input-wrapper {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.zy-dialog-wrapper pre {
+  font-family: 'PingFang SC', 'Avenir Next', Helvetica, Arial, sans-serif;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0;
+}
+
+.zy-dialog-wrapper input {
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.zy-dialog-wrapper input.prompt-input {
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 22px;
+  padding: 4px;
+  border: 1px solid #d0d0d0;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button {
+  display: inline-block !important;
+  display: block;
+  overflow: hidden;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button-main {
+  border: none;
+  padding: 10px 18px;
+  background: #388ae3;
+  color: #FFFFFF;
+  border-radius: 2px;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button-main:hover {
+  background-color: #327CCE;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button-main:active {
+  color: #f0f0f0;
+  background-color: #2871C1;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button-alt {
+  border: 1px solid #388ae3;
+  color: #388ae3;
+  padding: 9px 17px;
+  background: transparent;
+  border-radius: 2px;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button-alt:hover {
+  background-color: #fafafa;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button-alt:active {
+  color: #006abe;
+  background-color: #f5f5f5;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button.red {
+  color: #eb3941;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button.red:active {
+  color: #ad292f;
+  background-color: #f0f0f0;
+}
+
+/* .zy-dialog-wrapper input.zy-dialog-footer-button:not(:first-child) {
+  border-left: 1px solid #efefef;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button:first-child:nth-last-child(1) {
+  width: 30px;
+}
+
+.zy-dialog-wrapper input.zy-dialog-footer-button:first-child:nth-last-child(2),
+.zy-dialog-wrapper input.zy-dialog-footer-button:first-child:nth-last-child(2) ~ input.zy-dialog-footer-button {
+  width: 50%;
+} */
+
+.zy-dialog-wrapper .zy-dialog-content.zy-dialog-wide {
+  width: 600px;
+}
