@@ -2,7 +2,7 @@
   <div class="container">
     <section class="header">
       <h3><a href="https://github.com/mogita/vue-zydialog">Vue ZyDialog</a></h3>
-      <p>A dialog component that provides an easy way to use <code>alert</code>, <code>confirm</code> and <code>prompt</code> in your Vue.js apps.</p>
+      <p>A dialog component that makes <code>alert</code>, <code>confirm</code> and <code>prompt</code> easy and neat in your Vue.js apps.</p>
     </section>
 
     <section class="demo-wrapper">
