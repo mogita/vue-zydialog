@@ -2,7 +2,7 @@
   <div class="container">
     <section class="header">
       <h3><a href="https://github.com/mogita/vue-zydialog">Vue ZyDialog</a></h3>
-      <p>A dialog component that makes <code>alert</code>, <code>confirm</code> and <code>prompt</code> easy and neat in your Vue.js apps.</p>
+      <p>A dialog component that provides customizable <code>alert</code>, <code>confirm</code> and <code>prompt</code> for your Vue.js apps.</p>
     </section>
 
     <section class="demo-wrapper">
@@ -18,17 +18,34 @@
     </section>
 
     <section class="readme">
+      <h3>Features</h3>
+      <ul class="features">
+        <li>Promise based, friendly programming interface</li>
+        <li>Global and per call config</li>
+        <li>Sequential calls are queued automatically, while it's possible to override the priority manually</li>
+        <li>Zero styling dependency, theming (WIP) based on CSS</li>
+        <li>Mobile & desktop ready</li>
+      </ul>
+
+      <h3>Requirement</h3>
+      <ul><li>Vue.js 2.x</li></ul>
+
+      <h3>Browser Compatibility</h3>
+      <ul>
+        <li>Evergreen browsers</li>
+        <li>IE >= 9</li>
+      </ul>
       <h3>Installation</h3>
       With Yarn
       <pre><code>yarn add vue-zydialog</code></pre>
       Or with NPM
       <pre><code>npm install vue-zydialog --save</code></pre>
 
-      <h3>Usage</h3>
-      <p>In your <code>main.js</code> file</p>
+      <h3>Basic Example</h3>
+      <p>Import ZyDialog in your <code>main.js</code> file</p>
       <pre><code>import ZyDialog from 'vue-zydialog'
 Vue.use(ZyDialog)</code></pre>
-      <p>In your <code>vue</code> component</p>
+      <p>Use it in your <code>vue</code> component</p>
       <pre><code>...
 methods: {
   sayHello () {
@@ -36,6 +53,27 @@ methods: {
     .then(() => {
       this.$alert('World confirmed')
     })
+  }
+}
+...</code></pre>
+    <p>If you prefer the <code>async/await</code> flavour, you can do this</p>
+    <pre><code>...
+methods: {
+  async sayHello () {
+    await this.$alert('Hello world')
+    this.$alert('World confirmed')
+  }
+}
+...
+
+...
+methods: {
+  async toConfirm () {
+    if (await this.$confirm('Are you sure?')){
+      // continue to process
+    } else {
+      // abort processing
+    }
   }
 }
 ...</code></pre>
@@ -124,25 +162,21 @@ export default {
     return {}
   },
   methods: {
-    alert () {
+    async alert () {
       let now = new Date().getTime()
-      this.$alert(theLang.alert.helloWorld)
-      .then(() => {
-        let time = ((new Date().getTime() - now) / 1000).toFixed(2)
-        this.$alert({
-          title: theLang.alert.worldConfirmed,
-          message: `${theLang.alert.timeUsed} ${time} ${theLang.alert.seconds}`
-        })
+      await this.$alert(theLang.alert.helloWorld)
+      let time = ((new Date().getTime() - now) / 1000).toFixed(2)
+      this.$alert({
+        title: theLang.alert.worldConfirmed,
+        message: `${theLang.alert.timeUsed} ${time} ${theLang.alert.seconds}`
       })
     },
-    confirm () {
-      this.$confirm(theLang.confirm.prettyWorld)
-      .then(() => {
+    async confirm () {
+      if (await this.$confirm(theLang.confirm.prettyWorld)){
         this.$alert(theLang.confirm.yes)
-      })
-      .catch(() => {
+      } else {
         this.$alert(theLang.confirm.no)
-      })
+      }
     },
     prompt () {
       this.$prompt({
@@ -233,7 +267,7 @@ body {
   line-height: 24px;
 }
 
-p code {
+p code, .features code {
   background: #e0e0e0;
   border-radius: 3px;
   padding: 3px 5px;
