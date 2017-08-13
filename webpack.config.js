@@ -45,11 +45,14 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.entry = './src/lib'
+  module.exports.devtool = '#source-map'
   module.exports.output = {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'vue-zydialog.min.js'
+    publicPath: '/dist/',
+    filename: 'vue-zydialog.min.js',
+    library: ['vue-zydialog'],
+    libraryTarget: 'umd'
   }
-  module.exports.devtool = '#source-map'
   // http://vuejs.github.io/vue-loader/workflow/production.html
   module.exports.plugins = [
     new webpack.DefinePlugin({
