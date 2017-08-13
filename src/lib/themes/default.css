@@ -20,6 +20,7 @@
   transform: translateY(-100%);
   background-color: #ffffff;
   width: 380px;
+  max-width: 90%;
   margin: 0 auto;
   border-radius: 2px;
   overflow: hidden;
