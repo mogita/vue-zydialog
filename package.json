@@ -1,12 +1,13 @@
 {
   "name": "vue-zydialog",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
-    "build": "cross-env NODE_ENV=production && webpack --progress --hide-modules"
+    "build": "export NODE_ENV=production && webpack --progress --hide-modules",
+    "build:docs": "cross-env NODE_ENV=production && webpack --progress --hide-modules"
   },
   "description": "A Vue.js dialog module",
-  "main": "src/lib",
+  "main": "dist/vue-zydialog.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mogita/vue-zydialog.git"
