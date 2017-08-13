@@ -106,9 +106,9 @@ export default {
           break
         case 'confirm':
           if (cancelled) {
-            this.optionsData.promiseHandler.reject()
+            this.optionsData.promiseHandler.resolve(false)
           } else {
-            this.optionsData.promiseHandler.resolve()
+            this.optionsData.promiseHandler.resolve(true)
           }
           break
         case 'prompt':
