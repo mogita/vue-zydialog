@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import ZyDialog from './../lib'
 
-const lang = navigator.language || navigator.userLanguage || 'en-US'
+let lang = navigator.language || navigator.userLanguage || 'en-US'
+lang = lang.toLowerCase()
 
 let langKey
 if (~lang.indexOf('cn')) {
@@ -22,12 +23,12 @@ const langTable = {
   }
 }
 
-const theLang = langTable[langKey]
-
 Vue.use(ZyDialog, {
-  lbLabel: theLang.lbLabel,
-  rbLabel: theLang.rbLabel
+  lbLabel: langTable[langKey].lbLabel,
+  rbLabel: langTable[langKey].rbLabel
 })
+
+Vue.prototype.$langKey = langKey
 
 /* eslint-disable no-new */
 new Vue({
