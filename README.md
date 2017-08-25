@@ -90,4 +90,4 @@ methods: {
 
 ### License
 
-[MIT](https://tldrlegal.com/license/mit-license)
+MIT © [mogita](https://github.com/mogita)
