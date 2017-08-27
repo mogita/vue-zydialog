@@ -40,6 +40,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
+    "standard": "^10.0.3",
     "vue": "^2.4.2",
     "vue-hot-reload-api": "^2.1.0",
     "vue-html-loader": "^1.2.4",
@@ -49,5 +50,8 @@
     "webpack": "^2.7.0",
     "webpack-dev-server": "^2.7.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "standard": {
+    "ignore": "/docs"
+  }
 }

@@ -1,10 +1,14 @@
-## Vue ZyDialog
+# Vue ZyDialog
+
+[![](https://img.shields.io/npm/v/vue-zydialog.svg)](https://www.npmjs.com/package/zydialog)
+[![](https://img.shields.io/npm/l/vue-zydialog.svg)](https://github.com/mogita/vue-zydialog/blob/master/LICENSE)
+[![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 A dialog component that provides customizable `alert`, `confirm` and `prompt` for your Vue.js apps.
 
 [Checkout the DEMO](https://mogita.github.io/vue-zydialog)
 
-### Features
+## Features
 
 - Promise based, friendly programming interface
 - Global and per call config
@@ -12,16 +16,16 @@ A dialog component that provides customizable `alert`, `confirm` and `prompt` fo
 - Zero styling dependency, theming (WIP) based on CSS
 - Mobile & desktop ready
 
-### Requirement
+## Requirement
 
 - Vue.js 2.x
 
-### Browser Compatibility
+## Browser Compatibility
 
 - Evergreen browsers
 - IE >= 9
 
-### Installation
+## Installation
 
 With Yarn
 
@@ -35,7 +39,7 @@ Or with NPM
 npm install vue-zydialog --save
 ```
 
-### Basic Example
+## Basic Example
 
 Import ZyDialog in your `main.js` file
 
@@ -84,10 +88,10 @@ methods: {
 ...
 ```
 
-### Documentation
+## Documentation
 
 (Docs WIP)
 
-### License
+## License
 
 MIT © [mogita](https://github.com/mogita)
