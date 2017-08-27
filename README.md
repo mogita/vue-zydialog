@@ -1,6 +1,6 @@
 # Vue ZyDialog
 
-[![](https://img.shields.io/npm/v/vue-zydialog.svg)](https://www.npmjs.com/package/zydialog)
+[![](https://img.shields.io/npm/v/vue-zydialog.svg)](https://www.npmjs.com/package/vue-zydialog)
 [![](https://img.shields.io/npm/l/vue-zydialog.svg)](https://github.com/mogita/vue-zydialog/blob/master/LICENSE)
 [![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
