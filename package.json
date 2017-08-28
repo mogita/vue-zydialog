@@ -20,6 +20,9 @@
     "component"
   ],
   "author": "mogita <me@mogita.com>",
+  "contributors": [
+    "LitoMore <litomore@gmail.com> (https://github.com/LitoMore)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mogita/vue-zydialog/issues"
