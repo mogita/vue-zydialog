@@ -24,7 +24,7 @@
       <h3>{{($langKey === 'cn') ? '浏览器兼容性' : 'Browser Compatibility'}}</h3>
       <ul>
         <li>{{($langKey === 'cn') ? '现代浏览器' : 'Evergreen browsers'}}</li>
-        <li>IE >= 9</li>
+        <li>IE >= 10</li>
       </ul>
       <h3>{{($langKey === 'cn') ? '安装' : 'Installation'}}</h3>
       {{($langKey === 'cn') ? '使用 Yarn' : 'With Yarn'}}

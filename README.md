@@ -24,7 +24,7 @@ A dialog component that provides customizable `alert`, `confirm` and `prompt` fo
 ## Browser Compatibility
 
 - Evergreen browsers
-- IE >= 9
+- IE >= 10
 
 ## Installation
 
