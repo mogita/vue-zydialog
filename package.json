@@ -3,8 +3,7 @@
   "version": "0.0.5",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --host 0.0.0.0",
-    "build": "cross-env NODE_ENV=production && webpack --progress --hide-modules",
-    "dist": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "description": "A Vue.js dialog module",
   "main": "dist/vue-zydialog.min.js",

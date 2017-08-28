@@ -2,12 +2,7 @@ let path = require('path')
 let webpack = require('webpack')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
-  entry: './src/demo/main.js',
-  output: {
-    path: path.resolve(__dirname, 'docs'),
-    filename: 'main.js'
-  },
+const common = {
   module: {
     rules: [
       {
@@ -33,6 +28,15 @@ module.exports = {
         loader: 'vue-html-loader'
       }
     ]
+  }
+}
+
+// for dev
+module.exports = Object.assign({}, common, {
+  entry: './src/demo/main.js',
+  output: {
+    path: path.resolve(__dirname, 'docs'),
+    filename: 'main.js'
   },
   devtool: '#eval-source-map',
   plugins: [
@@ -41,30 +45,60 @@ module.exports = {
       template: 'src/demo/index.html'
     })
   ]
-}
+})
 
+// for building
 if (process.env.NODE_ENV === 'production') {
-  module.exports.entry = './src/lib'
-  module.exports.devtool = '#source-map'
-  module.exports.output = {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
-    filename: 'vue-zydialog.min.js',
-    library: ['vue-zydialog'],
-    libraryTarget: 'umd'
-  }
-  // http://vuejs.github.io/vue-loader/workflow/production.html
-  module.exports.plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
+  module.exports = [
+    Object.assign({}, common, {
+      name: 'dist',
+      entry: './src/lib',
+      output: {
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/',
+        filename: 'vue-zydialog.min.js',
+        library: ['vue-zydialog'],
+        libraryTarget: 'umd'
+      },
+      plugins: [
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: '"production"'
+          }
+        }),
 
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+      ]
+    }),
+    Object.assign({}, common, {
+      name: 'docs',
+      entry: './src/demo/main.js',
+      output: {
+        path: path.resolve(__dirname, 'docs'),
+        filename: 'main.js'
+      },
+      plugins: [
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: '"production"'
+          }
+        }),
+
+        new HtmlWebpackPlugin({
+          filename: 'index.html',
+          template: 'src/demo/index.html'
+        }),
+
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+      ]
     })
   ]
 }
