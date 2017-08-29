@@ -52,7 +52,7 @@ const OPTIONS_TEMPLATE = {
   lbLabel: '取消', // left button label text
   rbLabel: '确认', // right button label text
   actionAlt: null, // callback function when left button is clicked
-  action: null, // callback function when right button is clicked
+  action: null // callback function when right button is clicked
 }
 
 const CANCELLED = true
@@ -136,7 +136,7 @@ export default {
           this.visible = true
           setTimeout(() => {
             if (this.options.mode === 'prompt') {
-              this.$refs.promptInput.focus()              
+              this.$refs.promptInput.focus()
             } else {
               this.$refs.rbButton.focus()
             }
