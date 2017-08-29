@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "test": "mocha-webpack --webpack-config webpack.test.conf.js \"test/**/*.spec.js\""
+    "test": "standard --plugin vue '**/*.vue' && mocha-webpack --webpack-config webpack.test.conf.js \"test/**/*.spec.js\""
   },
   "description": "A Vue.js dialog module",
   "main": "dist/vue-zydialog.min.js",
@@ -41,6 +41,7 @@
     "chai": "^4.1.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.4",
+    "eslint-plugin-vue": "^2.1.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",

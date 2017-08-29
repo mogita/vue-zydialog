@@ -105,7 +105,7 @@ export default {
       })
     },
     async confirm () {
-      if (await this.$confirm(this.theLang.confirm.prettyWorld)){
+      if (await this.$confirm(this.theLang.confirm.prettyWorld)) {
         this.$alert(this.theLang.confirm.yes)
       } else {
         this.$alert(this.theLang.confirm.no)
