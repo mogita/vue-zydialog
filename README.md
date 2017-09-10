@@ -91,7 +91,56 @@ methods: {
 
 ## Documentation
 
-(Docs WIP)
+### Options
+
+You can pass an object of options when initializing ZyDialog or when calling `alert`, `confirm` and `prompt`. For example:
+
+```javascript
+// Global options
+import ZyDialog from 'vue-zydialog'
+Vue.use(ZyDialog, {
+  duration: 3000 // This will make all dialogs auto close after 3 seconds
+})
+
+// Per call options
+// When calling with a string as the parameter, the string automatically goes to "title" field, or you can explicitly set the "title" and other options like this
+...
+methods: {
+  async sayHello () {
+    await this.$alert({
+      title: 'Hello world',
+      duration: 3000
+    })
+  }
+}
+...
+```
+
+Available options are as follows:
+
+Field|Type|Default|Notes
+:---|:---|:---|:---
+id|String|'vue-zydialog-default'|DOM id
+className|String|''|additional DOM class name
+maskColor|String|'rgba(40, 40, 40, 0.6)'|color of the mask area
+override|Boolean|false|current dialog overrides the queue and will be shown instantly, this will also clear the queue
+parent|String|'body'|parent DOM node, needs a `querySelector` compatible string
+transition|String|'zy-dialog-transition'|transition class name, refer to [Vue.js Transitions Docs](https://vuejs.org/v2/guide/transitions.html) for defining your own transition
+duration|Number|0|milliseconds before auto close, set to 0 or any falsy value to disable auto close
+wide|Boolean|false|shows as a wide dialog
+title|String|''|dialog title
+message|String|''|dialog message
+forceStay|Boolean|true|set to true to prevent closing / canceling the dialog when mask area is clicked
+lbHide|Bolean|false|hide left button
+rbHide|Boolean|false|hide right button
+lbLabel|String|'取消'|left button label text
+rbLabel|String|'确认'|right button label text
+actionAlt|Function/`null`|null|callback function when left button and mask area is clicked
+action|Function/`null`|null|callback function when right button is clicked
+
+### Theme
+
+Docs WIP for theming the visual part
 
 ## License
 

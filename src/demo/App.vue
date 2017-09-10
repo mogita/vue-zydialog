@@ -12,7 +12,7 @@
       <h3>{{($langKey === 'cn') ? '功能' : 'Features'}}</h3>
       <ul class="features">
         <li>{{($langKey === 'cn') ? '基于 Promise 提供友好的编程接口' : 'Promise based, friendly programming interface'}}</li>
-        <li>{{($langKey === 'cn') ? '支持全局或本地配置' : 'Global and per call config'}}</li>
+        <li>{{($langKey === 'cn') ? '支持全局或单次选项配置' : 'Global and per call options'}}</li>
         <li>{{($langKey === 'cn') ? '连续调用自动排队，支持手动插入到队首' : 'Sequential calls are queued automatically, while it\'s possible to override the priority manually'}}</li>
         <li>{{($langKey === 'cn') ? '无 UI 库依赖，可通过 CSS 自定义主题（WIP）' : 'Zero styling dependency, theming (WIP) based on CSS'}}</li>
         <li>{{($langKey === 'cn') ? '已适配桌面和移动端' : 'Mobile & desktop ready'}}</li>
@@ -71,7 +71,55 @@ methods: {
     </section>
 
     <section class="more">
-      <h3>{{($langKey === 'cn') ? '文档正在完善中...' : 'Readme WIP, more coming soon...'}}</h3>
+      <h2>{{($langKey === 'cn') ? '文档' : 'Documentation'}}</h2>
+        <h3>{{($langKey === 'cn') ? '选项' : 'Options'}}</h3>
+        <p>{{($langKey === 'cn') ? '你可以在初始化 ZyDialog 或调用' : 'You can pass an object of options when initializing ZyDialog or when calling '}}<code>alert</code>, <code>confirm</code>{{($langKey === 'cn') ? ' 和 ' : ' and '}}<code>prompt</code>{{($langKey === 'cn') ? ' 时传入选项 Object。例如：' : '. For example:'}}</p>
+        <pre><code class='language-javascript' lang='javascript'>{{($langKey === 'cn') ? '// 全局选项' : '// Global options'}}
+import ZyDialog from 'vue-zydialog'
+Vue.use(ZyDialog, {
+  duration: 3000 {{($langKey === 'cn') ? '// 所有对话框都将在 3 秒时自动关闭' : '// This will make all dialogs auto close after 3 seconds'}}
+})
+
+{{($langKey === 'cn') ? '// 单次选项' : '// Per call options'}}
+{{($langKey === 'cn') ? '// 当传入的参数为字符串时，它将自动成为「title」字段的值。你也可以按如下方式显式设置「title」和其他选项' : '// When calling with a string as the parameter, the string automatically goes to "title" field, or you can explicitly set the "title" and other options like this'}}
+...
+methods: {
+  async sayHello () {
+    await this.$alert({
+      title: 'Hello world',
+      duration: 3000
+    })
+  }
+}
+...</code></pre>
+        <p>{{($langKey === 'cn') ? '可用选项：' : 'Available options are as follows:'}}</p>
+        <table>
+        <thead>
+        <tr><th>{{($langKey === 'cn') ? '字段' : 'Field'}}</th><th>{{($langKey === 'cn') ? '类型' : 'Type'}}</th><th>{{($langKey === 'cn') ? '默认值' : 'Default'}}</th><th>{{($langKey === 'cn') ? '说明' : 'Notes'}}</th></tr></thead>
+        <tbody>
+          <tr><td>id</td><td>String</td><td>'vue-zydialog-default'</td><td>DOM id</td></tr>
+          <tr><td>className</td><td>String</td><td>''</td><td>{{($langKey === 'cn') ? 'DOM 的附加 Class 名称' : 'additional DOM class name'}}</td></tr>
+          <tr><td>maskColor</td><td>String</td><td>'rgba(40, 40, 40, 0.6)'</td><td>{{($langKey === 'cn') ? '遮罩层颜色' : 'color of the mask area'}}</td></tr>
+          <tr><td>override</td><td>Boolean</td><td>false</td><td>{{($langKey === 'cn') ? '此对话框将被插入到队列之首并立即显式，同时清空队列里的其他对话框' : 'current dialog overrides the queue and will be shown instantly, this will also clear the queue'}}</td></tr>
+          <tr><td>parent</td><td>String</td><td>'body'</td><td>{{($langKey === 'cn') ? '父级 DOM 节点，需要传入 querySelector 字符串' : 'parent DOM node, needs a querySelector compatible string'}}</td></tr>
+          <tr><td>transition</td><td>String</td><td>'zy-dialog-transition'</td><td>{{($langKey === 'cn') ? '过渡动画 Class 名，关于 Vue.js 过渡动画详细信息请参考官方文档：' : 'transition class name, for defining your own transition please refer to: '}}<a href='https://vuejs.org/v2/guide/transitions.html' target="_blank">Vue.js Transitions Docs</a></td></tr>
+          <tr><td>duration</td><td>Number</td><td>0</td><td>{{($langKey === 'cn') ? '自动关闭前延迟时间（毫秒），设置为 0 或其他假值来禁用自动关闭' : 'milliseconds before auto close, set to 0 or any falsy value to disable auto close'}}</td></tr>
+          <tr><td>wide</td><td>Boolean</td><td>false</td><td>{{($langKey === 'cn') ? '显示较宽的对话框' : 'shows as a wide dialog'}}</td></tr>
+          <tr><td>title</td><td>String</td><td>''</td><td>{{($langKey === 'cn') ? '对话框标题' : 'dialog title'}}</td></tr>
+          <tr><td>message</td><td>String</td><td>''</td><td>{{($langKey === 'cn') ? '对话框消息' : 'dialog message'}}</td></tr>
+          <tr><td>forceStay</td><td>Boolean</td><td>true</td><td>{{($langKey === 'cn') ? '设为 true 来阻止点击遮罩层时关闭对话框的行为' : 'set to true to prevent closing / canceling the dialog when mask area is clicked'}}</td></tr>
+          <tr><td>lbHide</td><td>Bolean</td><td>false</td><td>{{($langKey === 'cn') ? '隐藏左按钮' : 'hide left button'}}</td></tr>
+          <tr><td>rbHide</td><td>Boolean</td><td>false</td><td>{{($langKey === 'cn') ? '隐藏右按钮' : 'hide right button'}}</td></tr>
+          <tr><td>lbLabel</td><td>String</td><td>'取消'</td><td>{{($langKey === 'cn') ? '设置左按钮标题' : 'left button label text'}}</td></tr>
+          <tr><td>rbLabel</td><td>String</td><td>'确认'</td><td>{{($langKey === 'cn') ? '设置右按钮标题' : 'right button label text'}}</td></tr>
+          <tr><td>actionAlt</td><td>Function/<code>null</code></td><td>null</td><td>{{($langKey === 'cn') ? '点击左按钮以及遮罩层时的回调方法' : 'callback function when left button and mask area is clicked'}}</td></tr>
+          <tr><td>action</td><td>Function/<code>null</code></td><td>null</td><td>{{($langKey === 'cn') ? '点击右按钮时的回调方法' : 'callback function when right button is clicked'}}</td></tr>
+        </tbody>
+        </table>
+        <h3>{{($langKey === 'cn') ? '主题' : 'Theme'}}</h3>
+        <p>{{($langKey === 'cn') ? '文档正在完善中' : 'Docs WIP for theming the visual part'}}</p>
+        <h2>{{($langKey === 'cn') ? '授权协议' : 'License'}}</h2>
+        <p>MIT © <a href='https://github.com/mogita'>mogita</a></p>
     </section>
   </div>
 </template>
@@ -153,9 +201,23 @@ p code, .features code {
   margin-top: 90px;
 }
 
-.readme pre {
+.readme pre, .more pre {
   background: #f0f0f0;
   white-space: pre-wrap;
   padding: 12px;
+}
+
+.more table {
+  border-collapse: collapse;
+}
+
+.more table td, .more table th {
+  border: 1px solid #cccccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.more table tbody tr:nth-child(odd) {
+  background: #eeeeee;
 }
 </style>
